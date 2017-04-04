@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1> <a href="#/" id="retour-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>Station {{ station.name }}</h1>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container content-app">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Vélos disponibles : </h3>
+            <p class="p-station"><i class='fa fa-bicycle' aria-hidden='true'></i> {{ station.available_bikes }}</p>
+
+            <br>
+
+            <h3>Emplacements disponibles :</h3>
+            <p class="p-station"><span class='park-big'>P</span> {{ station.available_bike_stands }}</p>
+
+            <div class="spacer"></div>
+            <a class="btn btn-default" href="https://www.google.com/maps/place/{{ station.address }}/@{{ station.position.lat }},{{ station.position.lng }},15z"><i class="fa fa-location-arrow" aria-hidden="true"></i> Lancer le trajet</a>
+            <div class="spacer"></div>
+            <a class="btn btn-default" href=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Partager le trajet</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Points d'intérêt à proximité</h3>
+            <leaflet height="400" width="100%" markers="markers" layers="layers" center="center"></leaflet>
+            <div class="spacer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+</div>

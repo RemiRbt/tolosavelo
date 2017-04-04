@@ -1,0 +1,219 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url(../fonts/Lora-Regular.ttf);
+}
+
+
+/*******************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lora', serif;
+    color: #4D4D4D;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2,
+h3 {
+    color: #A5282B;
+    font-size: 18px
+}
+
+h1 {
+    font-size: 25px;
+    margin: 15px auto;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #F1C40B;
+}
+
+a {
+    color: #A5282B;
+}
+
+.content-app {
+    padding-top: 70px;
+}
+
+
+/*
+@media (max-width: 360px) {
+  .content-app { padding-top: 100px; }
+}*/
+
+
+/*#retour-btn {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  z-index: 500;
+}*/
+
+
+/*MAP */
+
+.leaflet-control-layers,
+.leaflet-control {
+    display: none;
+}
+
+.leaflet-container a {
+    color: #A5282B;
+}
+
+.leaflet-container {
+    font-family: 'Lora', serif;
+}
+
+
+/*HEADER */
+
+.navbar-fixed-top {
+    box-shadow: 0px 2px 5px #888;
+    border: none;
+    background-color: #A5282B;
+    margin-bottom: 70px;
+}
+
+.navbar h1,
+.navbar a {
+    color: #fff;
+}
+
+.navbar a {
+    padding-right: 20px;
+}
+
+
+/*PAGE MAIN*/
+
+.liste {
+    padding-left: 40px;
+}
+
+#info-btn,
+#gps-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 500;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.75);
+    /* border: 1px solid #d6d6d6; */
+    padding-top: 2px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    padding-right: 7px;
+    box-shadow: 1px 1px 4px 0px #777;
+    border-radius: 30px;
+}
+
+#gps-btn {
+    top: auto;
+    bottom: 15px;
+}
+
+.popup {
+    text-align: center;
+}
+
+.leaflet-popup-content p {
+    font-size: 1.2em;
+}
+
+.popup a {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.popup i {
+    font-size: 1.7em;
+}
+
+.popup i.fa.fa-plus-circle {
+    font-size: 2em;
+}
+
+.park-big {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    border: 2px solid #4D4D4D;
+    padding: 0px 7px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.park {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #4D4D4D;
+    padding: 0px 5px;
+    border-radius: 3px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    padding: 7px 7px 0 0;
+    width: 20px;
+    height: 20px;
+}
+
+
+/*PAGE STATION*/
+
+a.btn.btn-default {
+    background-color: #F1C40B;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    transition: opacity 0.5s;
+}
+
+a.btn.btn-default:hover,
+a.btn.btn-default:focus,
+a.btn.btn-default:active {
+    opacity: 0.55;
+}
+
+.spacer {
+    height: 20px;
+}
+
+.p-station {
+    font-size: 2.5em;
+}
+
+
+/*
+
+div:focus {
+    outline: #000 5px !important;
+}
+
+:focus {
+    outline: #000 5px !important;
+}*/
