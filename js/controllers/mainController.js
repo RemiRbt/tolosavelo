@@ -49,6 +49,7 @@ angular.module('tolosaveloApp')
                     });
                 });
             });
+            userPositionIsSet = false;
         }
 
         // Options de la map
