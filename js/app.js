@@ -1,5 +1,6 @@
 'use strict';
 
+//Gère la redirection en associant un contrôleur à chaque vue
 angular
     .module('tolosaveloApp', ['ngRoute', 'ngResource', 'leaflet-directive'])
     .config(function ($routeProvider, $locationProvider, $logProvider) {

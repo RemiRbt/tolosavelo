@@ -1,35 +1,93 @@
+<!-- Page de station -->
+
+<!-- Titre -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                <!-- On récupère et affiche le nom de la station -->
                 <h1> <a href="#/" id="retour-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>Station {{ station.name }}</h1>
             </div>
         </div>
     </div>
 </nav>
 
+<!-- Contenu -->
 <div class="container content-app">
     <div class="row">
         <div class="col-sm-12">
+            <p style="margin:0">Dernière actualisation : {{ station.last_update | date:"HH:mm:ss"}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
             <h3>Vélos disponibles : </h3>
+            <!-- On récupère et affiche le nombre de vélos disponibles -->
             <p class="p-station"><i class='fa fa-bicycle' aria-hidden='true'></i> {{ station.available_bikes }}</p>
 
             <br>
 
             <h3>Emplacements disponibles :</h3>
+            <!-- On récupère et affiche le nombre d'emplacements disponibles -->
             <p class="p-station"><span class='park-big'>P</span> {{ station.available_bike_stands }}</p>
 
             <div class="spacer"></div>
+
+            <!-- On récupère l'adresse de la station pour lancer la navigation sur Google Maps -->
             <a class="btn btn-default" href="https://www.google.com/maps/place/{{ station.address }}/@{{ station.position.lat }},{{ station.position.lng }},15z"><i class="fa fa-location-arrow" aria-hidden="true"></i> Lancer le trajet</a>
+
             <div class="spacer"></div>
+
+            <!-- Partage du trajet -->
             <a class="btn btn-default" href=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Partager le trajet</a>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
+
+            <!-- Map des points d'intérets -->
             <h3>Points d'intérêt à proximité</h3>
             <leaflet height="400" width="100%" markers="markers" layers="layers" center="center"></leaflet>
             <div class="spacer"></div>
+
+            <!-- Légende -->
+            <h4>Légende</H4>
+            <hr>
+            <div class="col-xs-6">
+                <p><img src="img/cycleway-15.png">
+                    <br>Bande cyclable</p>
+                <p><img src="img/path-15.png">
+                    <br>Voie piétonne</p>
+                <p><img src="img/Large-Bicycle-Parking-17.png">
+                    <br>Grand parking vélo</p>
+                <p><img src="img/Bicycle-Parking-17.png">
+                    <br>Petit parking vélo</p>
+                <p><img src="img/bikeshop-15.png">
+                    <br>Magasin de vélos</p>
+                <p><img src="img/Bicycle rental-17.png">
+                    <br>Location de vélos</p>
+            </div>
+            <div class="col-xs-6">
+                <p><img src="img/toilets-17.png">
+                    <br>Toilettes</p>
+                <p><img src="img/Cafe-17.png">
+                    <br>Café</p>
+                <p><img src="img/Drinking-Water-17.png">
+                    <br>Fontaine d'eau potable</p>
+                <p><img src="img/Pub-17.png">
+                    <br>Bar</p>
+                <p><img src="img/Pub-wifi-17.png">
+                    <br>Bar avec wifi gratuit</p>
+                <p><img src="img/Shelter-17.png">
+                    <br>Abri</p>
+                <p><img src="img/hospital-17.png">
+                    <br>Hôpital</p>
+                <p><img src="img/Post-Office-17.png">
+                    <br>Bureau de poste</p>
+                <p><img src="img/Postbox-17.png">
+                    <br>Boîte aux lettres</p>
+            </div>
+
         </div>
     </div>
 </div>

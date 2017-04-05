@@ -41,12 +41,14 @@ h1 {
 }
 
 a:hover,
-a:active {
+a:active,
+button:hover,
     text-decoration: none;
     color: #F1C40B;
 }
 
-a {
+a,
+button {
     color: #A5282B;
 }
 
@@ -111,7 +113,8 @@ a {
 }
 
 #info-btn,
-#gps-btn {
+#gps-btn,
+#refresh {
     position: fixed;
     top: 15px;
     right: 15px;
@@ -130,6 +133,13 @@ a {
 #gps-btn {
     top: auto;
     bottom: 15px;
+}
+
+#refresh {
+    top: auto;
+    right: auto;
+    bottom: 15px;
+    left: 15px;
 }
 
 .popup {
