@@ -1,5 +1,7 @@
 'use strict';
 
+// Controleur de la page main
+
 angular.module('tolosaveloApp')
     .controller('MainCtrl', function ($scope, serviceAjax, $timeout) {
         var watchID = "";
@@ -10,24 +12,46 @@ angular.module('tolosaveloApp')
             $scope.markers = [];
             var markersGroup = L.markerClusterGroup();
 
+            //Affichage du pop-up au click du marker
             angular.forEach($scope.stations, function (station) {
                 $scope.markers.push({
                     lat: station.position.lat,
                     lng: station.position.lng,
                     layer: 'points',
                     message: "<p class=popup>" +
+                        // renameStation : script.js (renomme la station pour masquer l'id station)
                         renameStation(station.name) + "<br><br>" +
                         "<i class='fa fa-bicycle' aria-hidden='true'></i> : " + station.available_bikes + "&nbsp &nbsp | &nbsp &nbsp" +
-                        // "<i class='fa fa-map-marker' aria-hidden='true'></i> : " + station.available_bike_stands + "<br><br>" +
-                        // "<span class='glyphicons glyphicons-parking' aria-hidden='true'></span> : " + station.available_bike_stands + "<br><br>" +
                         "<span class='park'>P</span> : " + station.available_bike_stands + "<br><br>" +
-                        // station.address + "<br> <br>
                         "<a href='#/station/" + station.number + "'><i class='fa fa-plus-circle' aria-hidden='true'></i></a></p>",
                     draggable: false
                 });
             });
         });
 
+        function refreshMap() {
+            serviceAjax.all().then(function (data) {
+                $scope.stations = data;
+                $scope.markers = [];
+                var markersGroup = L.markerClusterGroup();
+                angular.forEach($scope.stations, function (station) {
+                    $scope.markers.push({
+                        lat: station.position.lat,
+                        lng: station.position.lng,
+                        layer: 'points',
+                        message: "<p class=popup>" +
+                            // renameStation : script.js (renomme la station pour masquer l'id station)
+                            renameStation(station.name) + "<br><br>" +
+                            "<i class='fa fa-bicycle' aria-hidden='true'></i> : " + station.available_bikes + "&nbsp &nbsp | &nbsp &nbsp" +
+                            "<span class='park'>P</span> : " + station.available_bike_stands + "<br><br>" +
+                            "<a href='#/station/" + station.number + "'><i class='fa fa-plus-circle' aria-hidden='true'></i></a></p>",
+                        draggable: false
+                    });
+                });
+            });
+        }
+
+        // Options de la map
         angular.extend($scope, {
             center: {
                 lat: 43.6007,
@@ -53,6 +77,7 @@ angular.module('tolosaveloApp')
             }
         });
 
+        //Fonction pour récupérer la position de l'utilisateur
         function getPosition() {
 
             var options = {
@@ -87,6 +112,7 @@ angular.module('tolosaveloApp')
             }
         }
 
+        // Fonction pour rediriger l'utilisateur vers sa position avec création d'un marqueur de localisation
         function watchPosition() {
 
             var options = {
@@ -135,11 +161,17 @@ angular.module('tolosaveloApp')
             }
 
         }
-        
+
+        //Appel des fonctions de localisation au click du bouton de localisation
         $(document).on('click', '#gps-btn', function () {
             navigator.geolocation.clearWatch(watchID);
             watchPosition();
             getPosition();
+        });
+
+        //Appel dede la fonction pour actualisé la carte
+        $(document).on('click', '#refresh', function () {
+            refreshMap();
         });
 
     });

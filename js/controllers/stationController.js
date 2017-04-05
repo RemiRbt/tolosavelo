@@ -1,6 +1,10 @@
 'use strict';
 
+// Controleur de la page station
+
 angular.module('tolosaveloApp')
+
+    //Affichage de la map des points d'intérets centrée sur la postion de la station choisie
     .controller('StationCtrl', function ($scope, $routeParams, serviceAjax) {
         var id = $routeParams.id;
         $scope.markers = [];
@@ -8,6 +12,7 @@ angular.module('tolosaveloApp')
         serviceAjax.station(id).then(function (data) {
             $scope.station = data;
             $scope.station.name = renameStation($scope.station.name);
+            $scope.station.last_update = data.last_update;
 
             $scope.markers.push({
                 lat: $scope.station.position.lat,
@@ -23,6 +28,7 @@ angular.module('tolosaveloApp')
             };
         });
 
+        // Options de la map des points d'intérets + lien vers l'API
         angular.extend($scope, {
             layers: {
                 baselayers: {
