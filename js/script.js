@@ -12,8 +12,11 @@ function renameStation(string) {
 }
 
 
-/*$(document).ready(function () {
+$(document).on("deviceready", function () {
+
     //Fonction plugin GPS
+
+    console.log("done device ready");
 
     cordova.plugins.locationAccuracy.canRequest(function (canRequest) {
         if (canRequest) {
@@ -30,4 +33,5 @@ function renameStation(string) {
         }
     });
 
-});*/
+
+});
