@@ -143,7 +143,6 @@ angular.module('tolosaveloApp')
                         $scope.markers.push({
                             lat: position.coords.latitude,
                             lng: position.coords.longitude,
-                            layer: 'points',
                             message: "<p class=popup>Vous êtes ici!</p>",
                             draggable: false,
                             icon: {

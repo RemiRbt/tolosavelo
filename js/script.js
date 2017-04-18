@@ -11,7 +11,6 @@ function renameStation(string) {
     return temp;
 }
 
-
 $(document).on("deviceready", function () {
 
     //Fonction plugin GPS
@@ -34,4 +33,15 @@ $(document).on("deviceready", function () {
     });
 
 
+});
+
+$(document).ready(function () {
+    $(document).load('js/views/station.html', function () {
+        setTimeout(function () {
+            var h = $("#height-decal").outerHeight(true);
+            $("#main-decal").css("padding-top", h + 10 + "px");
+        }, 1000);
+
+
+    });
 });
